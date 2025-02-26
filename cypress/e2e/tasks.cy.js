@@ -24,4 +24,11 @@ describe("tasks management", () => {
     cy.get(".task").get("h2").contains("New Task");
     cy.get(".task").get("p").contains("Some description");
   });
+
+  it("should validate user input", () => {
+    cy.visit("http://localhost:5173/");
+    cy.contains("Add Task").click();
+    cy.get(".modal").contains("Add Task").click();
+    cy.contains("Please provide values");
+  });
 });
